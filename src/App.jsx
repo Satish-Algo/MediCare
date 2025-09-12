@@ -7,7 +7,7 @@ function App() {
 
 
     return(
-        <div className='flex flex-col flex-wrap justify-between min-h-screen w-full items-center  bg-gray-700 ' >
+        <div className='flex flex-col flex-wrap justify-between min-h-screen w-full items-center  bg-white ' >
             <Header/>
             <min>
                 <Outlet />

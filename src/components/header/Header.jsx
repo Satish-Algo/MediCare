@@ -30,17 +30,23 @@ function Header () {
             active: true,
 
         },
+        {
+            name: "profile",
+            slug: "",
+            active:true,
+        }
     ]
 
 
     return (
 
-        <header className="py-3 shadow bg-gray-500 w-[85%] my-3 rounded-2xl">
+        <header className="py-1 shadow bg-green-700 w-[90%] my-3 rounded-2xl">
             <Container>
                 <nav className="flex items-center ">
                     <div className="mr-4">
                         <Link to="/" >
-                            <h1>Logo</h1>
+
+                          <h1>logonpm </h1>
                         </Link>
                     </div>
                     <ul  className="ml-auto flex items-center">
@@ -49,7 +55,7 @@ function Header () {
                                 <li key={item.name}>
                                     <button
                                         // onClick={() => navigate(item.slug)}
-                                        className="inline-block px-6 py-2 duration-200 hover:bg-[#eb7724] hover:text-amber-50 rounded-full"
+                                        className="inline-block px-6 py-2 duration-200 hover:bg-gre hover:text-amber-50 rounded-full"
                                     >
                                         {item.name}
                                     </button>
