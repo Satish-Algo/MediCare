@@ -6,16 +6,32 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import store from "./store/store.js";
 import {Provider} from "react-redux";
 import Home from "./components/pages/Home.jsx";
+import HealthCare from "./components/HospitalPages/healthcare/HealthCare.jsx";
+ import SingUp from "./components/pages/singup/SingUp.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <App/>,
         children: [
             {
                 path: "/",
-                element: <Home />,
+                element: <Home/>,
+                children:[],
             },
+
+            {
+                path: "/health",
+                element: <HealthCare/>,
+            },
+            {
+                path: "/singup",
+                element: <SingUp/>,
+
+            },
+
+
+
         ],
     },
 ])
