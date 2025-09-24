@@ -8,6 +8,8 @@ import {Provider} from "react-redux";
 import Home from "./components/pages/Home.jsx";
 import HealthCare from "./components/HospitalPages/healthcare/HealthCare.jsx";
  import SingUp from "./components/pages/singup/SingUp.jsx";
+import Login from "./components/pages/login/Login.jsx";
+import Profile from "./components/pages/profile/Profile.jsx";
 
 const router = createBrowserRouter([
     {
@@ -29,9 +31,13 @@ const router = createBrowserRouter([
                 element: <SingUp/>,
 
             },
-
-
-
+            {
+                path:"/login",
+                element:<Login/>,
+            },
+            {path:"/profile",
+                element: <Profile/>,
+            }
         ],
     },
 ])

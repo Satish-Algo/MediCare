@@ -1,40 +1,48 @@
-import React, { useState } from "react";
+import React from 'react';
 import Logo from "../../logo/Logo.jsx";
 import {Link} from "react-router-dom";
 import Input from "../../inputfield/Input.jsx";
 import Button from "../../button/Button.jsx";
-import {useForm} from "react-hook-form";
-import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import{useForm} from "react-hook-form";
 import authService from "../../../appwrite/authService/AuthService.js";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import {setUser} from "../../../store/feature/auth/authSlice.js";
+import {useState} from "react";
 
-
- function SingUp() {
-    const [error, setError] = useState('')
-    const {register, handleSubmit} = useForm();
+function Login() {
+    const [error, setError] = useState(null);
+    const {register,handleSubmit} = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const create = async (data) => {
+    const login =async (data) => {
         console.log(data);
-        try {
-            const account = await authService.createAccount({
-                name: data.name,
-                email: data.email,
-                password: data.password,
-            });
 
-            if (account) {
-                const userData = await authService.getCurrentUser();
-                if (userData) dispatch(setUser(userData));
-                navigate("/");
+            try {
+                const currentUser = await authService.getCurrentUser();
+                if (currentUser) {
+                    // already logged in
+                    dispatch(setUser(currentUser));
+                    navigate("/");
+                    return;
+                }
+
+                const account = await authService.login({
+                    email: data.email,
+                    password: data.password,
+                });
+
+                if (account) {
+                    const userdata = await authService.getCurrentUser();
+                    if (userdata) {
+                        dispatch(setUser(userdata));
+                        navigate("/");
+                    }
+                }
+            } catch (err) {
+                setError(err);
             }
-        } catch (err) {
-            setError(err.message);
-        }
-    };
-
-
+        };
     return (
         <div className="flex items-center justify-center min-h-screen">
             <div
@@ -54,15 +62,10 @@ import {setUser} from "../../../store/feature/auth/authSlice.js";
                         Sign In
                     </Link>
                 </p>
-                {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
+                {error && <p className="text-red-600 mt-4 text-center"> {error.message || "Something went wrong"}</p>}
 
-                <form onSubmit={handleSubmit(create)} className="space-y-5 mt-6">
-                    <Input
-                        label="Full Name"
-                        placeholder="Enter your full name"
-                        {...register("name",
-                            {required: true})}
-                    />
+                <form onSubmit={handleSubmit(login)} className="space-y-5 mt-6">
+
                     <Input
                         label="Email"
                         placeholder="Enter your email"
@@ -79,7 +82,7 @@ import {setUser} from "../../../store/feature/auth/authSlice.js";
                         label="Password"
                         type="password"
                         placeholder="Enter your password"
-                        {...register("password", { required: "Password is required" })}
+                        {...(register("password", {required: "Password is required"}))}
                     />
                     <div className="flex items-center justify-center">
                         <Button
@@ -95,5 +98,4 @@ import {setUser} from "../../../store/feature/auth/authSlice.js";
     );
 }
 
-
-export default SingUp;
+export default Login;

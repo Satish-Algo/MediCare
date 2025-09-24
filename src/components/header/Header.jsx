@@ -1,11 +1,14 @@
 import React from "react";
 import {Link ,useNavigate} from "react-router-dom";
 import {Container} from "../index.js";
+import {useSelector} from "react-redux";
+import logoutButton from "../button/LogButt.jsx";
 
 
 function Header () {
     const navigate = useNavigate();
-    const navItems = [
+  const authStatus = useSelector((state) => state.auth.status);
+   let navItems = [
         {
             name: "Home",
             slug:'/',
@@ -13,14 +16,14 @@ function Header () {
         },
         {
             name: "Login",
-            slug:'',
-            active: true,
+            slug:'/login',
+            active:!authStatus,
 
         },
         {
             name: "Signup",
             slug:'/singup',
-            active: true,
+            active: !authStatus,
 
         },
         {
@@ -31,10 +34,10 @@ function Header () {
         },
         {
             name: "profile",
-            slug: "",
+            slug: "/profile",
             active:true,
         }
-    ]
+    ];
 
 
     return (
