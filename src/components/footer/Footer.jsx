@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
     return (
-        <section className="relative overflow-hidden  bg-white  w-[100%] bg-gradient-to-r from-green-100 via-green-200 to-green-300 rounded-lg shadow-lg mt-8 ">
+        <section className="relative overflow-hidden  bg-white  w-[100%] bg-gradient-to-r from-green-100 via-green-200 to-green-300 rounded-lg shadow-lg mt-3 ">
             <div className="relative  mx-auto max-w-7xl px-4">
                 <div className="m-6 flex flex-wrap">
                     <div className="w-full p-6 md:w-1/2 lg:w-5/12">

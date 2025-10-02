@@ -3,8 +3,8 @@ import {ServiceCard} from "../serviceCard/ServiceCard.jsx";
 function Home() {
     const services = [
         { iconUrl: 'https://img.icons8.com/color/96/000000/heart-with-pulse.png', title: 'Health Care', description: 'Comprehensive heart care services.', slug: "/health" },
-        { iconUrl: 'https://img.icons8.com/color/96/000000/stethoscope.png', title: 'Find Doctors', description: 'Consult top doctors near you.', slug: "" },
-        { iconUrl: 'https://img.icons8.com/color/96/000000/laboratory.png', title: 'Lab Tests', description: 'Get lab tests done at home.', slug: "" },
+        { iconUrl: 'https://img.icons8.com/color/96/000000/stethoscope.png', title: 'Find Doctors', description: 'Consult top doctors near you.', slug: "/docterlist" },
+        { iconUrl: 'https://img.icons8.com/color/96/000000/laboratory.png', title: 'Lab Tests', description: 'Get lab tests done at home.', slug: "/labtests" },
         { iconUrl: 'https://img.icons8.com/color/96/000000/syringe.png', title: 'Vaccines', description: 'Easy vaccine booking services.', slug: "" },
     ];
     const departments = [

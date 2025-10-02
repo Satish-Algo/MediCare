@@ -10,6 +10,8 @@ import HealthCare from "./components/HospitalPages/healthcare/HealthCare.jsx";
  import SingUp from "./components/pages/singup/SingUp.jsx";
 import Login from "./components/pages/login/Login.jsx";
 import Profile from "./components/pages/profile/Profile.jsx";
+import Doctorlist from "./components/HospitalPages/docterlist/Doctorlist.jsx";
+import LabTests from "./components/HospitalPages/LabTests.jsx";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +23,6 @@ const router = createBrowserRouter([
                 element: <Home/>,
                 children:[],
             },
-
             {
                 path: "/health",
                 element: <HealthCare/>,
@@ -35,8 +36,15 @@ const router = createBrowserRouter([
                 path:"/login",
                 element:<Login/>,
             },
-            {path:"/profile",
+            {   path:"/profile",
                 element: <Profile/>,
+            },
+            {
+                path:"/docterlist",
+                element: <Doctorlist/>,
+            },
+            {    path:"/labtests",
+                element: <LabTests/>
             }
         ],
     },

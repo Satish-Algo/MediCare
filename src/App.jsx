@@ -5,7 +5,7 @@ function App() {
     const location = useLocation();
 
     // Paths where you DON'T want Header/Footer
-    const noHeaderFooter = ["/signup", "/login"];
+    const noHeaderFooter = ["/signup", ];
 
     const hideHeaderFooter = noHeaderFooter.includes(location.pathname);
 

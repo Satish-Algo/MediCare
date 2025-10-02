@@ -6,8 +6,8 @@ const conf = {
         appwriteUserCollectionId : String(import.meta.env.VITE_APPWRITE_USERS_COLLECTION_ID),
         appwriteDoctorCollectionId : String(import.meta.env.VITE_APPWRITE_DOCTORS_COLLECTION_ID),
         appwriteBucketId : String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
-
-
+        appwriteLabTestId : String(import.meta.env.VITE_APPWRITE_LAB_TEST_ID),
+        appwritLabBookingId : String(import.meta.env.VITE_APPWRITE_LAB_BOOKING_ID),
 
 
 }
